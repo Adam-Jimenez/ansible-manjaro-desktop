@@ -120,3 +120,7 @@
   copy:
     src: roles/common/files/init.vim
     dest: ~/.config/nvim/init.vim
+
+- name: install chromium
+  pacman: name=chromium state=present
+  become: true

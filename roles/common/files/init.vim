@@ -49,6 +49,7 @@ if dein#load_state('~/.local/share/dein/')
   call dein#add('junegunn/goyo.vim') " Distraction free vim editing
 
   call dein#add('dkprice/vim-easygrep') " Grep across multiple files
+  call dein#add('mhinz/vim-startify') " A nice start screen
 
   " You can specify revision/branch/tag.
   " call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
