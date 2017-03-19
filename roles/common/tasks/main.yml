@@ -79,6 +79,7 @@
   lineinfile: dest=~/.local/share/omf/init.fish
               line=fish_vi_key_bindings
               state=present
+              insertbefore=BOF
 
 - name: install thefuck
   shell: pip install thefuck
@@ -88,10 +89,6 @@
   shell: omf install thefuck
   args:
     executable: /usr/bin/fish
-
-- name: remove acpid because of 2 min shutdown
-  pacman: name=acpid state=absent
-  become: true
 
 - name: remove empathy
   pacman: name=empathy state=absent
@@ -123,4 +120,37 @@
 
 - name: install chromium
   pacman: name=chromium state=present
+  become: true
+
+- name: install nodejs
+  pacman: name=nodejs state=present
+  become: true
+
+- name: install npm
+  pacman: name=npm state=present
+  become: true
+
+- name : install z
+  copy:
+    src: roles/common/files/z.sh
+    dest: ~/.local/share/omf/bin/z.sh
+    mode: 0774
+
+- name: set fish z path
+  lineinfile: dest=~/.local/share/omf/init.fish
+              line="set -g Z_SCRIPT_PATH ~/.local/share/omf/bin/z.sh"
+              state=present
+              insertbefore=BOF
+
+- name: install fish z
+  shell: omf install z
+  args:
+    executable: /usr/bin/fish
+
+- name: install virtualbox
+  pacman: name=virtualbox state=present
+  become: true
+
+- name: install vagrant
+  pacman: name=vagrant state=present
   become: true
