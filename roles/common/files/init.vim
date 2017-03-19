@@ -6,15 +6,15 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/home/adam/.local/share/dein//repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.local/share/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/home/adam/.local/share/dein/')
-  call dein#begin('/home/adam/.local/share/dein/')
+if dein#load_state('~/.local/share/dein/')
+  call dein#begin('~/.local/share/dein/')
 
   " Let dein manage dein
   " Required:
-  call dein#add('/home/adam/.local/share/dein//repos/github.com/Shougo/dein.vim')
+  call dein#add('~/.local/share/dein/repos/github.com/Shougo/dein.vim')
 
   " >>> Add or remove your plugins here <<<:
   ""
@@ -106,7 +106,7 @@ let g:goyo_width = '100%'                                                       
 let g:goyo_height = '100%'                                                        "100% height
 
 let g:neosnippet#snippets_directory = [
-            \ '/home/adam/.local/share/dein//repos/github.com//honza/vim-snippets/snippets',
+            \ '~/.local/share/dein//repos/github.com//honza/vim-snippets/snippets',
             \ '~/.local/share/dein/repos/github.com/Shougo/neosnippet-snippets/neosnippets']
 
 " ================ General Config ====================

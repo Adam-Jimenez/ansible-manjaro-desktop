@@ -61,6 +61,7 @@
   shell: yaourt -S nerd-fonts-complete --noconfirm
   when: result == ""
   tags: nerd-fonts
+  ignore_errors: true
   async: 300
   poll: 10
 
@@ -68,6 +69,33 @@
   shell: omf install bobthefish; and omf theme bobthefish
   args:
     executable: /usr/bin/fish
+
+- name: install fish vi-mode
+  shell: omf install vi-mode
+  args:
+    executable: /usr/bin/fish
+
+- name: enable vi-mode
+  lineinfile: dest=~/.local/share/omf/init.fish
+              line=fish_vi_key_bindings
+              state=present
+
+- name: install thefuck
+  shell: pip install thefuck
+  become: true
+
+- name: install oh-my-fish thefuck plugin
+  shell: omf install thefuck
+  args:
+    executable: /usr/bin/fish
+
+- name: remove acpid because of 2 min shutdown
+  pacman: name=acpid state=absent
+  become: true
+
+- name: remove empathy
+  pacman: name=empathy state=absent
+  become: true
 
 - name: enable bobthefish to use nerd fonts
   shell: set -g theme_nerd_fonts yes
@@ -87,3 +115,8 @@
 
 - name: install dein
   shell: /tmp/dein_install.sh ~/.local/share/dein
+
+- name : install neovim config
+  copy:
+    src: roles/common/files/init.vim
+    dest: ~/.config/nvim/init.vim
