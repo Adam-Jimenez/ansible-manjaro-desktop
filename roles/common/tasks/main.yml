@@ -1,0 +1,89 @@
+---
+- name: install wget
+  pacman: name=wget state=present
+  tags: wget
+  become: true
+
+- name: install git
+  pacman: name=git state=present
+  tags: git
+  become: true
+
+- name: install pip
+  shell: easy_install pip
+  become: true
+
+- name: install neovim
+  pacman: name=neovim state=present
+  tags: neovim
+  become: true
+
+- name: install neovim python client
+  pip: name=neovim
+  tags: python neovim
+  become: true
+
+- name: create vim symlink to nvim
+  file: src=/usr/bin/nvim dest=/usr/bin/vim state=link
+  become: true
+
+- name: create vi symlink to vim
+  file: src=/usr/bin/vim dest=/usr/bin/vi state=link
+  become: true
+
+- name: install fish shell
+  pacman: name=fish state=present
+  tags: fish
+  become: true
+
+- name: switch default shell to fish
+  shell: chsh -s /usr/bin/fish adam
+  tags: shellchange
+  become: true
+
+- name: download oh-my-fish install script
+  get_url:
+    url: https://get.oh-my.fish
+    dest: /tmp/fish_install.sh
+    mode: 0774
+
+- name: install oh-my-fish
+  shell: /tmp/fish_install.sh --noninteractive
+  ignore_errors: true
+  async: 10
+  poll: 1
+
+- name: check if nerd fonts are installed
+  shell: pacman -Qs nerd-fonts-complete
+  register: result
+
+- name: install nerd fonts
+  shell: yaourt -S nerd-fonts-complete --noconfirm
+  when: result == ""
+  tags: nerd-fonts
+  async: 300
+  poll: 10
+
+- name: install bobthefish theme
+  shell: omf install bobthefish; and omf theme bobthefish
+  args:
+    executable: /usr/bin/fish
+
+- name: enable bobthefish to use nerd fonts
+  shell: set -g theme_nerd_fonts yes
+  args:
+    executable: /usr/bin/fish
+
+- name: install terminator
+  pacman: name=terminator state=present
+  tags: terminator
+  become: true
+
+- name: download dein (neovim package manager)
+  get_url:
+    url: https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh
+    dest: /tmp/dein_install.sh
+    mode: 0774
+
+- name: install dein
+  shell: /tmp/dein_install.sh ~/.local/share/dein

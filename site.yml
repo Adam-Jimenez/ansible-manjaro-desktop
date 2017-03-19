@@ -1,0 +1,7 @@
+---
+- name: install software
+  hosts: local
+  remote_user: adam
+
+  roles:
+    - common
