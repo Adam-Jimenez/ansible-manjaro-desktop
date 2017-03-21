@@ -154,3 +154,7 @@
 - name: install vagrant
   pacman: name=vagrant state=present
   become: true
+
+- name: install ruby
+  pacman: name=ruby state=present
+  become: true
