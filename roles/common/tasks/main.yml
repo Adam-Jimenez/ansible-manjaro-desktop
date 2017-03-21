@@ -166,3 +166,8 @@
 - name: install flake8 - python linter
   pacman: name=flake8 state=present
   become: true
+
+- name: install ansible-lint
+  pacman: name=ansible-lint state=present
+  become: true
+
