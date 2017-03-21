@@ -158,3 +158,11 @@
 - name: install ruby
   pacman: name=ruby state=present
   become: true
+
+- name: install tidy - HTML linter
+  pacman: name=tidy state=present
+  become: true
+
+- name: install flake8 - python linter
+  pacman: name=flake8 state=present
+  become: true
