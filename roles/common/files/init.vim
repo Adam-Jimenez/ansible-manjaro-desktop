@@ -50,6 +50,7 @@ if dein#load_state('~/.local/share/dein/')
 
   call dein#add('dkprice/vim-easygrep') " Grep across multiple files
   call dein#add('mhinz/vim-startify') " A nice start screen
+  call dein#add('zenbro/mirror.vim') " Remote editing made easy
 
   " You can specify revision/branch/tag.
   " call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
@@ -74,6 +75,7 @@ endif
 
 " ================ Plugin config =====================
 "
+
 let g:deoplete#enable_at_startup = 1
 
 let g:airline_powerline_fonts = 1                                               "Enable powerline fonts
@@ -108,7 +110,8 @@ let g:goyo_height = '100%'                                                      
 
 let g:neosnippet#snippets_directory = [
             \ '~/.local/share/dein//repos/github.com//honza/vim-snippets/snippets',
-            \ '~/.local/share/dein/repos/github.com/Shougo/neosnippet-snippets/neosnippets']
+            \ '~/.local/share/dein/repos/github.com/Shougo/neosnippet-snippets/neosnippets',
+            \ '~/.local/my-snippets']
 
 " ================ General Config ====================
 
@@ -118,7 +121,7 @@ colorscheme kalisi
 
 set t_Co=256                                                                    "Set 256 colors
 set title                                                                       "change the terminal's title
-set number                                                                      "Line numbers are good
+set relativenumber                                                              "relative numbers are good
 set history=500                                                                 "Store lots of :cmdline history
 set showcmd                                                                     "Show incomplete cmds down the bottom
 set noshowmode                                                                  "Hide showmode because of the powerline plugin

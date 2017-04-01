@@ -13,6 +13,16 @@
   shell: easy_install pip
   become: true
 
+- name: install rust
+  pacman: name=rust state=present
+  tags: rust
+  become: true
+
+- name: install cargo (rust package manager)
+  pacman: name=cargo state=present
+  tags: cargo rust
+  become: true
+
 - name: install neovim
   pacman: name=neovim state=present
   tags: neovim
@@ -74,12 +84,6 @@
   shell: omf install vi-mode
   args:
     executable: /usr/bin/fish
-
-- name: enable vi-mode
-  lineinfile: dest=~/.local/share/omf/init.fish
-              line=fish_vi_key_bindings
-              state=present
-              insertbefore=BOF
 
 - name: install thefuck
   shell: pip install thefuck
@@ -171,3 +175,7 @@
   pacman: name=ansible-lint state=present
   become: true
 
+- name : install fish config
+  copy:
+    src: roles/common/files/config.fish
+    dest: ~/.config/fish/config.fish
