@@ -36,9 +36,9 @@ if dein#load_state('~/.local/share/dein/')
   call dein#add('tpope/vim-commentary') " Comment code easily
   call dein#add('tpope/vim-surround') " Surround with quotes, brackets
   call dein#add('tpope/vim-repeat') " Enable plugins to use repeat '.'
-  call dein#add('tpope/vim-fugitive') " Git stuff
 
   call dein#add('scrooloose/nerdtree') " File browser
+  call dein#add('Xuyuanp/nerdtree-git-plugin') " Git for nerdtree
 
   call dein#add('airblade/vim-gitgutter') " Git diff viewer
 
@@ -51,6 +51,10 @@ if dein#load_state('~/.local/share/dein/')
   call dein#add('dkprice/vim-easygrep') " Grep across multiple files
   call dein#add('mhinz/vim-startify') " A nice start screen
   call dein#add('zenbro/mirror.vim') " Remote editing made easy
+  call dein#add('lambdalisue/gina.vim') " Git stuff
+  call dein#add('mattn/gist-vim') " post code to gist automatically
+  call dein#add('mattn/webapi-vim') " used by gist for http calls
+  call dein#add('brooth/far.vim') " search and replace
 
   " You can specify revision/branch/tag.
   " call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
@@ -181,7 +185,7 @@ set wildignore+=*.png,*.jpg,*.gif
 
 " ================ Scrolling ========================
 
-" set scrolloff=8                                                                 "Start scrolling when we're 8 lines away from margins
+set scrolloff=100                                                                 "Start scrolling when we're 100 lines away from margins
 set sidescrolloff=15
 set sidescroll=5
 
@@ -196,6 +200,7 @@ xmap <Leader>c gc
 " Map save to Ctrl + S
 map <c-s> :w<CR>
 imap <c-s> <C-o>:w<CR>
+
 " Also save with ,w
 nnoremap <Leader>w :w<CR>
 nmap <Leader>k <Plug>(ale_previous_wrap)
@@ -206,8 +211,6 @@ nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
-" Open vertical split
-nnoremap <Leader>v <C-w>v
 
 " Down is really the next line
 nnoremap j gj
@@ -324,8 +327,8 @@ autocmd vimrc BufWritePre * :call s:StripTrailingWhitespaces()                  
 autocmd vimrc InsertLeave * NeoSnippetClearMarkers                              "Remove unused markers for snippets
 autocmd vimrc InsertEnter * :set nocul                                          "Remove cursorline highlight
 autocmd vimrc InsertLeave * :set cul                                            "Add cursorline highlight in normal mode
-autocmd vimrc FileType html,javascript,coffee,cucumber setlocal sw=2 sts=2 ts=2 "Set 2 indent for html
-autocmd vimrc FileType php,javascript setlocal cc=80                            "Set right margin only for php and js
+" autocmd vimrc FileType html,javascript,coffee,cucumber setlocal sw=2 sts=2 ts=2 "Set 2 indent for html
+" autocmd vimrc FileType php,javascript setlocal cc=80                            "Set right margin only for php and js
 autocmd vimrc VimEnter,BufNewFile,BufReadPost * call s:LoadLocalVimrc()         "Load per project vimrc (Used for custom test mappings, etc.)
 
 autocmd vimrc VimEnter * set vb t_vb=
