@@ -183,3 +183,7 @@
 - name: install ctags
   pacman: name=ctags state=present
   become: true
+
+- name: install locate
+  pacman: name=mlocate state=present
+  become: true
