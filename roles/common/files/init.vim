@@ -31,8 +31,6 @@ if dein#load_state('~/.local/share/dein/')
   call dein#add('vim-airline/vim-airline') " action bar
   call dein#add('vim-airline/vim-airline-themes')
 
-  call dein#add('w0rp/ale') " Asynchronous linter
-
   call dein#add('tpope/vim-commentary') " Comment code easily
   call dein#add('tpope/vim-surround') " Surround with quotes, brackets
   call dein#add('tpope/vim-repeat') " Enable plugins to use repeat '.'
@@ -46,15 +44,10 @@ if dein#load_state('~/.local/share/dein/')
   call dein#add('gregsexton/MatchTag') " Match HTML tags
   call dein#add('sheerun/vim-polyglot') " Language syntax,detect,indent,etc pack
 
-  call dein#add('junegunn/goyo.vim') " Distraction free vim editing
-
   call dein#add('dkprice/vim-easygrep') " Grep across multiple files
   call dein#add('mhinz/vim-startify') " A nice start screen
-  call dein#add('zenbro/mirror.vim') " Remote editing made easy
   call dein#add('lambdalisue/gina.vim') " Git stuff
-  call dein#add('mattn/gist-vim') " post code to gist automatically
-  call dein#add('mattn/webapi-vim') " used by gist for http calls
-  call dein#add('brooth/far.vim') " search and replace
+  call dein#add('ludovicchabant/vim-gutentags') " Ctags management
 
   " You can specify revision/branch/tag.
   " call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
@@ -90,11 +83,6 @@ let g:airline#extensions#tabline#enabled = 1                                    
 let g:airline#extensions#tabline#left_sep = ' '                                 "Left separator for tabline
 let g:airline#extensions#tabline#left_alt_sep = '│'                             "Right separator for tabline
 
-let g:ale_linters = {'javascript': ['eslint']}                                  "Lint js with eslint
-let g:ale_lint_on_save = 1                                                      "Lint when saving a file
-let g:ale_sign_error = '✖'                                                      "Lint error sign
-let g:ale_sign_warning = '⚠'                                                    "Lint warning sign
-
 let g:delimitMate_expand_cr = 1                                                 "auto indent on enter
 
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '                                "Set up spacing for sidebar icons
@@ -109,13 +97,14 @@ let g:NERDTreeMinimalUI = 1                                                     
 let g:NERDTreeShowHidden = 1                                                    "Show hidden files in NERDTree
 let g:NERDTreeIgnore=['\.git$', '\.sass-cache$', '\.vagrant', '\.idea']
 
-let g:goyo_width = '100%'                                                         "100% chars width
-let g:goyo_height = '100%'                                                        "100% height
-
 let g:neosnippet#snippets_directory = [
             \ '~/.local/share/dein//repos/github.com//honza/vim-snippets/snippets',
             \ '~/.local/share/dein/repos/github.com/Shougo/neosnippet-snippets/neosnippets',
             \ '~/.local/my-snippets']
+
+" Use silver searcher for recursive file search
+call denite#custom#var('file_rec', 'command',
+	\ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
 
 " ================ General Config ====================
 
@@ -203,8 +192,6 @@ imap <c-s> <C-o>:w<CR>
 
 " Also save with ,w
 nnoremap <Leader>w :w<CR>
-nmap <Leader>k <Plug>(ale_previous_wrap)
-nmap <Leader>j <Plug>(ale_next_wrap)
 
 " Easier window navigation
 nmap <C-h> <C-w>h
@@ -220,8 +207,10 @@ nnoremap k gk
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)"
 \ : pumvisible() ? "\<C-n>" : "\<TAB>"
+
 " If popup window is visible do autocompletion from back
 imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
 " Fix for jumping over placeholders for neosnippet
 smap <expr><TAB> neosnippet#jumpable() ?
 \ "\<Plug>(neosnippet_jump)"
@@ -235,6 +224,7 @@ nnoremap Y y$
 
 " Copy to system clipboard
 vnoremap <C-c> "+y
+
 " Paste from system clipboard with Ctrl + v
 inoremap <C-v> <Esc>"+p
 nnoremap <Leader>p "0p
@@ -251,10 +241,6 @@ vnoremap K :m '<-2<CR>gv=gv
 
 " Clear search highlight
 nnoremap <Leader><space> :noh<CR>
-
-
-" Toggle distraction free mode
-nnoremap <Leader>g :Goyo<CR>
 
 " Handle syntastic error window
 nnoremap <Leader>e :lopen<CR>
@@ -286,6 +272,8 @@ nnoremap _ <c-w>5<
 " Center highlighted search
 nnoremap n nzz
 nnoremap N Nzz
+
+nnoremap <c-p> :Denite file_rec<CR>
 
 " ================ Abbreviations ====================
 

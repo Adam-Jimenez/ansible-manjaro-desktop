@@ -13,16 +13,6 @@
   shell: easy_install pip
   become: true
 
-- name: install rust
-  pacman: name=rust state=present
-  tags: rust
-  become: true
-
-- name: install cargo (rust package manager)
-  pacman: name=cargo state=present
-  tags: cargo rust
-  become: true
-
 - name: install neovim
   pacman: name=neovim state=present
   tags: neovim
@@ -171,10 +161,6 @@
   pacman: name=flake8 state=present
   become: true
 
-- name: install ansible-lint
-  pacman: name=ansible-lint state=present
-  become: true
-
 - name : install fish config
   copy:
     src: roles/common/files/config.fish
@@ -186,4 +172,8 @@
 
 - name: install locate
   pacman: name=mlocate state=present
+  become: true
+
+- name: install ag
+  pacman: name=the_silver_searcher state=present
   become: true

@@ -1,0 +1,86 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
++	roles/common/files/init.vim	/^nnoremap + <c-w>5>$/;"	m
+<C-c>	roles/common/files/init.vim	/^vnoremap <C-c> "+y$/;"	m
+<C-h>	roles/common/files/init.vim	/^nmap <C-h> <C-w>h$/;"	m
+<C-j>	roles/common/files/init.vim	/^nmap <C-j> <C-w>j$/;"	m
+<C-k>	roles/common/files/init.vim	/^nmap <C-k> <C-w>k$/;"	m
+<C-l>	roles/common/files/init.vim	/^nmap <C-l> <C-w>l$/;"	m
+<C-v>	roles/common/files/init.vim	/^inoremap <C-v> <Esc>"+p$/;"	m
+<Leader><space>	roles/common/files/init.vim	/^nnoremap <Leader><space> :noh<CR>$/;"	m
+<Leader>c	roles/common/files/init.vim	/^nmap <Leader>c gcc$/;"	m
+<Leader>dc	roles/common/files/init.vim	/^nnoremap <Leader>dc :cd %:p:h<CR>:pwd<CR>$/;"	m
+<Leader>e	roles/common/files/init.vim	/^nnoremap <Leader>e :lopen<CR>$/;"	m
+<Leader>hf	roles/common/files/init.vim	/^nnoremap <Leader>hf :NERDTreeFind<CR>$/;"	m
+<Leader>n	roles/common/files/init.vim	/^nnoremap <Leader>n :NERDTreeToggle<CR>$/;"	m
+<Leader>p	roles/common/files/init.vim	/^nnoremap <Leader>p "0p$/;"	m
+<Leader>p	roles/common/files/init.vim	/^vnoremap <Leader>p "0p$/;"	m
+<Leader>q	roles/common/files/init.vim	/^nnoremap <Leader>q :lclose<CR>$/;"	m
+<Leader>w	roles/common/files/init.vim	/^nnoremap <Leader>w :w<CR>$/;"	m
+<S-TAB>	roles/common/files/init.vim	/^imap <expr><S-TAB> pumvisible() ? "\\<C-p>" : "\\<S-Tab>"$/;"	m
+<TAB>	roles/common/files/init.vim	/^imap <expr><TAB> neosnippet#expandable_or_jumpable() ?$/;"	m
+<c-p>	roles/common/files/init.vim	/^nnoremap <c-p> :Denite file_rec<CR>$/;"	m
+<c-s>	roles/common/files/init.vim	/^imap <c-s> <C-o>:w<CR>$/;"	m
+<c-s>	roles/common/files/init.vim	/^map <c-s> :w<CR>$/;"	m
+<leader><tab>	roles/common/files/init.vim	/^nnoremap <leader><tab> <c-^>$/;"	m
+<s-tab>	roles/common/files/init.vim	/^nnoremap <s-tab> <<$/;"	m
+<tab>	roles/common/files/init.vim	/^nnoremap <tab> >>$/;"	m
+Bd	roles/common/files/init.vim	/^cnoreabbrev Bd bd$/;"	m
+J	roles/common/files/init.vim	/^vnoremap J :m '>+1<CR>gv=gv$/;"	m
+K	roles/common/files/init.vim	/^vnoremap K :m '<-2<CR>gv=gv$/;"	m
+LoadLocalVimrc	roles/common/files/init.vim	/^function! s:LoadLocalVimrc()$/;"	f
+N	roles/common/files/init.vim	/^nnoremap N Nzz$/;"	m
+Q	roles/common/files/init.vim	/^cnoreabbrev Q q$/;"	m
+Qa	roles/common/files/init.vim	/^cnoreabbrev Qa qa$/;"	m
+StripTrailingWhitespaces	roles/common/files/init.vim	/^function! s:StripTrailingWhitespaces()$/;"	f
+T	roles/common/files/init.vim	/^cnoreabbrev T tabe$/;"	m
+W	roles/common/files/init.vim	/^cnoreabbrev W w$/;"	m
+WQ	roles/common/files/init.vim	/^cnoreabbrev WQ wq$/;"	m
+Wq	roles/common/files/init.vim	/^cnoreabbrev Wq wq$/;"	m
+Y	roles/common/files/init.vim	/^nnoremap Y y\$$/;"	m
+_	roles/common/files/init.vim	/^nnoremap _ <c-w>5<$/;"	m
+_z	roles/common/files/z.sh	/^_z() {$/;"	f
+_z_dirs	roles/common/files/z.sh	/^    _z_dirs () {$/;"	f
+_z_precmd	roles/common/files/z.sh	/^            _z_precmd() {$/;"	f
+_z_zsh_tab_completion	roles/common/files/z.sh	/^    _z_zsh_tab_completion() {$/;"	f
+bD	roles/common/files/init.vim	/^cnoreabbrev bD bd$/;"	m
+bda	roles/common/files/init.vim	/^cnoreabbrev bda BufOnly$/;"	m
+common	roles/common/files/z.sh	/^            function common(matches) {$/;"	f
+den	roles/common/files/init.vim	/^cnoreabbrev den Denite$/;"	m
+frecent	roles/common/files/z.sh	/^            function frecent(rank, time) {$/;"	f
+g:NERDTreeChDirMode	roles/common/files/init.vim	/^let g:NERDTreeChDirMode = 2                                                     "Always change the root directory$/;"	v
+g:NERDTreeIgnore	roles/common/files/init.vim	/^let g:NERDTreeIgnore=['\\.git$', '\\.sass-cache$', '\\.vagrant', '\\.idea']$/;"	v
+g:NERDTreeMinimalUI	roles/common/files/init.vim	/^let g:NERDTreeMinimalUI = 1                                                     "Disable help text and bookmark title$/;"	v
+g:NERDTreeShowHidden	roles/common/files/init.vim	/^let g:NERDTreeShowHidden = 1                                                    "Show hidden files in NERDTree$/;"	v
+g:WebDevIconsNerdTreeAfterGlyphPadding	roles/common/files/init.vim	/^let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '                                "Set up spacing for sidebar icons$/;"	v
+g:airline#extensions#tabline#enabled	roles/common/files/init.vim	/^let g:airline#extensions#tabline#enabled = 1                                    "Enable tabline extension$/;"	v
+g:airline#extensions#tabline#left_alt_sep	roles/common/files/init.vim	/^let g:airline#extensions#tabline#left_alt_sep = '│'                             "Right separator for tabline$/;"	v
+g:airline#extensions#tabline#left_sep	roles/common/files/init.vim	/^let g:airline#extensions#tabline#left_sep = ' '                                 "Left separator for tabline$/;"	v
+g:airline#extensions#whitespace#enabled	roles/common/files/init.vim	/^let g:airline#extensions#whitespace#enabled = 0                                 "Disable whitespace extension$/;"	v
+g:airline_powerline_fonts	roles/common/files/init.vim	/^let g:airline_powerline_fonts = 1                                               "Enable powerline fonts$/;"	v
+g:airline_section_y	roles/common/files/init.vim	/^let g:airline_section_y = '%{substitute(getcwd(), expand("$HOME"), "~", "g")}'  "Set relative path$/;"	v
+g:airline_theme	roles/common/files/init.vim	/^let g:airline_theme = "kalisi"                                                  "Set theme to powerline default theme$/;"	v
+g:delimitMate_expand_cr	roles/common/files/init.vim	/^let g:delimitMate_expand_cr = 1                                                 "auto indent on enter$/;"	v
+g:deoplete#enable_at_startup	roles/common/files/init.vim	/^let g:deoplete#enable_at_startup = 1$/;"	v
+g:enable_bold_font	roles/common/files/init.vim	/^let g:enable_bold_font = 1                                                      "Enable bold font in colorscheme$/;"	v
+g:gitgutter_eager	roles/common/files/init.vim	/^let g:gitgutter_eager = 0                                                       "Disable gitgutter to eager load on tab or buffer switch$/;"	v
+g:gitgutter_realtime	roles/common/files/init.vim	/^let g:gitgutter_realtime = 0                                                    "Disable gitgutter in realtime$/;"	v
+g:mapleader	roles/common/files/init.vim	/^let g:mapleader = ","                                                           "Change leader to a comma$/;"	v
+g:neosnippet#disable_runtime_snippets	roles/common/files/init.vim	/^let g:neosnippet#disable_runtime_snippets = {'_' : 1}                           "Snippets setup$/;"	v
+g:neosnippet#snippets_directory	roles/common/files/init.vim	/^let g:neosnippet#snippets_directory = [$/;"	v
+j	roles/common/files/init.vim	/^nnoremap j gj$/;"	m
+jj	roles/common/files/init.vim	/^inoremap jj <Esc>$/;"	m
+k	roles/common/files/init.vim	/^nnoremap k gk$/;"	m
+n	roles/common/files/init.vim	/^nnoremap n nzz$/;"	m
+nowrap	roles/common/files/init.vim	/^cnoreabbrev nowrap set nowrap$/;"	m
+output	roles/common/files/z.sh	/^            function output(files, out, common) {$/;"	f
+p	roles/common/files/init.vim	/^nnoremap p p`]$/;"	m
+p	roles/common/files/init.vim	/^vnoremap p p`]$/;"	m
+t	roles/common/files/init.vim	/^cnoreabbrev t tabe$/;"	m
+vimrc	roles/common/files/init.vim	/^augroup vimrc$/;"	a
+wrap	roles/common/files/init.vim	/^cnoreabbrev wrap set wrap$/;"	m
+y	roles/common/files/init.vim	/^vnoremap y y`]$/;"	m
