@@ -44,10 +44,13 @@ if dein#load_state('~/.local/share/dein/')
   call dein#add('gregsexton/MatchTag') " Match HTML tags
   call dein#add('sheerun/vim-polyglot') " Language syntax,detect,indent,etc pack
 
-  call dein#add('dkprice/vim-easygrep') " Grep across multiple files
   call dein#add('mhinz/vim-startify') " A nice start screen
   call dein#add('lambdalisue/gina.vim') " Git stuff
+
   call dein#add('ludovicchabant/vim-gutentags') " Ctags management
+  call dein#add('vim-scripts/taglist.vim') " Ctags browser
+
+  call dein#add('eugen0329/vim-esearch') " Search in files easily
 
   " You can specify revision/branch/tag.
   " call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
@@ -97,6 +100,8 @@ let g:NERDTreeMinimalUI = 1                                                     
 let g:NERDTreeShowHidden = 1                                                    "Show hidden files in NERDTree
 let g:NERDTreeIgnore=['\.git$', '\.sass-cache$', '\.vagrant', '\.idea']
 
+let g:Tlist_Use_Right_Window = 1
+
 let g:neosnippet#snippets_directory = [
             \ '~/.local/share/dein//repos/github.com//honza/vim-snippets/snippets',
             \ '~/.local/share/dein/repos/github.com/Shougo/neosnippet-snippets/neosnippets',
@@ -135,7 +140,6 @@ set list                                                                        
 set lazyredraw                                                                  "Do not redraw on registers and macros
 set completeopt-=preview                                                        "Disable preview for autocomplete
 set background=dark                                                             "Set background to dark
-" set hidden                                                                      "Hide buffers in background
 set conceallevel=2 concealcursor=i                                              "neosnippets conceal marker
 set splitright                                                                  "Set up new splits positions
 
@@ -175,7 +179,7 @@ set wildignore+=*.png,*.jpg,*.gif
 " ================ Scrolling ========================
 
 set scrolloff=100                                                                 "Start scrolling when we're 100 lines away from margins
-set sidescrolloff=15
+set sidescrolloff=30
 set sidescroll=5
 
 
@@ -215,9 +219,6 @@ imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 smap <expr><TAB> neosnippet#jumpable() ?
 \ "\<Plug>(neosnippet_jump)"
 \: "\<TAB>"
-
-" Map for Escape key
-inoremap jj <Esc>
 
 " Yank to the end of the line
 nnoremap Y y$
@@ -274,6 +275,11 @@ nnoremap n nzz
 nnoremap N Nzz
 
 nnoremap <c-p> :Denite file_rec<CR>
+nnoremap <Leader>t :TlistToggle<CR>
+
+" Go to normal mode in terminal by pressing esc
+tnoremap <Esc> <C-\><C-n>
+
 
 " ================ Abbreviations ====================
 

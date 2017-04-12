@@ -20,6 +20,7 @@
 <Leader>p	roles/common/files/init.vim	/^nnoremap <Leader>p "0p$/;"	m
 <Leader>p	roles/common/files/init.vim	/^vnoremap <Leader>p "0p$/;"	m
 <Leader>q	roles/common/files/init.vim	/^nnoremap <Leader>q :lclose<CR>$/;"	m
+<Leader>t	roles/common/files/init.vim	/^nnoremap <Leader>t :TlistToggle<CR>$/;"	m
 <Leader>w	roles/common/files/init.vim	/^nnoremap <Leader>w :w<CR>$/;"	m
 <S-TAB>	roles/common/files/init.vim	/^imap <expr><S-TAB> pumvisible() ? "\\<C-p>" : "\\<S-Tab>"$/;"	m
 <TAB>	roles/common/files/init.vim	/^imap <expr><TAB> neosnippet#expandable_or_jumpable() ?$/;"	m
@@ -56,6 +57,7 @@ g:NERDTreeChDirMode	roles/common/files/init.vim	/^let g:NERDTreeChDirMode = 2   
 g:NERDTreeIgnore	roles/common/files/init.vim	/^let g:NERDTreeIgnore=['\\.git$', '\\.sass-cache$', '\\.vagrant', '\\.idea']$/;"	v
 g:NERDTreeMinimalUI	roles/common/files/init.vim	/^let g:NERDTreeMinimalUI = 1                                                     "Disable help text and bookmark title$/;"	v
 g:NERDTreeShowHidden	roles/common/files/init.vim	/^let g:NERDTreeShowHidden = 1                                                    "Show hidden files in NERDTree$/;"	v
+g:Tlist_Use_Right_Window	roles/common/files/init.vim	/^let g:Tlist_Use_Right_Window = 1$/;"	v
 g:WebDevIconsNerdTreeAfterGlyphPadding	roles/common/files/init.vim	/^let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '                                "Set up spacing for sidebar icons$/;"	v
 g:airline#extensions#tabline#enabled	roles/common/files/init.vim	/^let g:airline#extensions#tabline#enabled = 1                                    "Enable tabline extension$/;"	v
 g:airline#extensions#tabline#left_alt_sep	roles/common/files/init.vim	/^let g:airline#extensions#tabline#left_alt_sep = '│'                             "Right separator for tabline$/;"	v
@@ -73,7 +75,6 @@ g:mapleader	roles/common/files/init.vim	/^let g:mapleader = ","                 
 g:neosnippet#disable_runtime_snippets	roles/common/files/init.vim	/^let g:neosnippet#disable_runtime_snippets = {'_' : 1}                           "Snippets setup$/;"	v
 g:neosnippet#snippets_directory	roles/common/files/init.vim	/^let g:neosnippet#snippets_directory = [$/;"	v
 j	roles/common/files/init.vim	/^nnoremap j gj$/;"	m
-jj	roles/common/files/init.vim	/^inoremap jj <Esc>$/;"	m
 k	roles/common/files/init.vim	/^nnoremap k gk$/;"	m
 n	roles/common/files/init.vim	/^nnoremap n nzz$/;"	m
 nowrap	roles/common/files/init.vim	/^cnoreabbrev nowrap set nowrap$/;"	m
