@@ -5,6 +5,7 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
 +	roles/common/files/init.vim	/^nnoremap + <c-w>5>$/;"	m
+0	roles/common/files/init.vim	/^nnoremap 0 ^$/;"	m
 <C-c>	roles/common/files/init.vim	/^vnoremap <C-c> "+y$/;"	m
 <C-h>	roles/common/files/init.vim	/^nmap <C-h> <C-w>h$/;"	m
 <C-j>	roles/common/files/init.vim	/^nmap <C-j> <C-w>j$/;"	m

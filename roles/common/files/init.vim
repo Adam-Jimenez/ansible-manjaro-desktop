@@ -280,6 +280,9 @@ nnoremap <Leader>t :TlistToggle<CR>
 " Go to normal mode in terminal by pressing esc
 tnoremap <Esc> <C-\><C-n>
 
+" Always go at beginning of first word in line
+nnoremap 0 ^
+
 
 " ================ Abbreviations ====================
 
