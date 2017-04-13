@@ -51,6 +51,7 @@ if dein#load_state('~/.local/share/dein/')
   call dein#add('vim-scripts/taglist.vim') " Ctags browser
 
   call dein#add('eugen0329/vim-esearch') " Search in files easily
+  call dein#add('posva/vim-vue') " Search in files easily
 
   " You can specify revision/branch/tag.
   " call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
