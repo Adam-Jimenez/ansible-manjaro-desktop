@@ -177,3 +177,7 @@
 - name: install ag
   pacman: name=the_silver_searcher state=present
   become: true
+
+- name: install yarn
+  shell: curl -o- -L https://yarnpkg.com/install.sh | bash
+  tags: yarn
