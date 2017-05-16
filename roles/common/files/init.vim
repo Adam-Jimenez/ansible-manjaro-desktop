@@ -47,9 +47,6 @@ if dein#load_state('~/.local/share/dein/')
   call dein#add('mhinz/vim-startify') " A nice start screen
   call dein#add('lambdalisue/gina.vim') " Git stuff
 
-  call dein#add('ludovicchabant/vim-gutentags') " Ctags management
-  call dein#add('vim-scripts/taglist.vim') " Ctags browser
-
   call dein#add('eugen0329/vim-esearch') " Search in files easily
   call dein#add('posva/vim-vue') " Search in files easily
 
